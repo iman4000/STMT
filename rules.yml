@@ -1,0 +1,61 @@
+rules:
+  - id: python-function-call
+    languages: [python]
+    patterns:
+      - pattern: $FUNC(...)
+    message: "Python function call detected: $FUNC"
+    severity: INFO
+
+  - id: python-function-def
+    languages: [python]
+    patterns:
+      - pattern: def $FUNC(...):
+    message: "Python function definition detected: $FUNC"
+    severity: INFO
+
+  - id: javascript-function-call
+    languages: [javascript, typescript]
+    patterns:
+      - pattern: $FUNC(...)
+    message: "JavaScript function call detected: $FUNC"
+    severity: INFO
+
+  - id: javascript-function-def
+    languages: [javascript, typescript]
+    patterns:
+      - pattern: function $FUNC(...)
+      - pattern: const $FUNC = (...) => ...
+      - pattern: let $FUNC = (...) => ...
+    message: "JavaScript function definition detected: $FUNC"
+    severity: INFO
+
+  - id: java-function-call
+    languages: [java]
+    patterns:
+      - pattern: $FUNC(...)
+    message: "Java function call detected: $FUNC"
+    severity: INFO
+
+  - id: java-function-def
+    languages: [java]
+    patterns:
+      - pattern: public $RET $FUNC(...);
+      - pattern: private $RET $FUNC(...);
+      - pattern: protected $RET $FUNC(...);
+      - pattern: $RET $FUNC(...);
+    message: "Java function definition detected: $FUNC"
+    severity: INFO
+
+  - id: go-function-call
+    languages: [go]
+    patterns:
+      - pattern: $FUNC(...)
+    message: "Go function call detected: $FUNC"
+    severity: INFO
+
+  - id: go-function-def
+    languages: [go]
+    patterns:
+      - pattern: func $FUNC(...)
+    message: "Go function definition detected: $FUNC"
+    severity: INFO
